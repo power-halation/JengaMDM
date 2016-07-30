@@ -18,6 +18,7 @@ t = Thread.new do
 end
 
 EM::WebSocket.start({:host => "0.0.0.0",:port => 8000}) do |ws|
+	puts "Websocket Server Start"
 	ws.onopen do
 		@locker.synchronize do
 			connection << ws
